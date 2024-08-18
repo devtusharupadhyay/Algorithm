@@ -5,6 +5,10 @@ VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NestedDictionary", "NestedDictionary\NestedDictionary.csproj", "{751114FF-FC2E-499F-9216-F21B7368F58D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQLearn", "LINQLearn\LINQLearn.csproj", "{54AB9F14-A7E6-4C57-90EE-D39042BF908F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{47D0B5D6-BA6D-4327-A8AB-A87D08EFB722}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{751114FF-FC2E-499F-9216-F21B7368F58D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{751114FF-FC2E-499F-9216-F21B7368F58D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{751114FF-FC2E-499F-9216-F21B7368F58D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54AB9F14-A7E6-4C57-90EE-D39042BF908F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54AB9F14-A7E6-4C57-90EE-D39042BF908F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54AB9F14-A7E6-4C57-90EE-D39042BF908F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54AB9F14-A7E6-4C57-90EE-D39042BF908F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47D0B5D6-BA6D-4327-A8AB-A87D08EFB722}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47D0B5D6-BA6D-4327-A8AB-A87D08EFB722}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47D0B5D6-BA6D-4327-A8AB-A87D08EFB722}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47D0B5D6-BA6D-4327-A8AB-A87D08EFB722}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
