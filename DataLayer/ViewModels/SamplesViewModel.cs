@@ -132,24 +132,37 @@ namespace DataLayer.Models
             if (UseQuerySyntax)
             {
                 // Query Syntax
-
+                var products = (from prod in Products
+                               select new
+                               {
+                                   Identifier = prod.ProductID,
+                                   ProductName = prod.Name,
+                                   ProductSize = prod.Size 
+                               });
                 // Loop through anonymous class
-                //foreach (var prod in products) {
-                //  sb.AppendLine($"Product ID: {prod.Identifier}");
-                //  sb.AppendLine($"   Product Name: {prod.ProductName}");
-                //  sb.AppendLine($"   Product Size: {prod.ProductSize}");
-                //}
+                foreach (var prod in products)
+                {
+                    sb.AppendLine($"Product ID: {prod.Identifier}");
+                    sb.AppendLine($"   Product Name: {prod.ProductName}");
+                    sb.AppendLine($"   Product Size: {prod.ProductSize}");
+                }
             }
             else
             {
                 // Method Syntax
-
+                var products = Products.Select(prod => new
+                {
+                    Identifier = prod.ProductID,
+                    ProductName = prod.Name,
+                    ProductSize = prod.Size
+                });
                 // Loop through anonymous class
-                //foreach (var prod in products) {
-                //  sb.AppendLine($"Product ID: {prod.Identifier}");
-                //  sb.AppendLine($"   Product Name: {prod.ProductName}");
-                //  sb.AppendLine($"   Product Size: {prod.ProductSize}");
-                //}
+                foreach (var prod in products)
+                {
+                    sb.AppendLine($"Product ID: {prod.Identifier}");
+                    sb.AppendLine($"   Product Name: {prod.ProductName}");
+                    sb.AppendLine($"   Product Size: {prod.ProductSize}");
+                }
             }
 
             ResultText = sb.ToString();
@@ -166,11 +179,15 @@ namespace DataLayer.Models
             if (UseQuerySyntax)
             {
                 // Query Syntax
+                Products = (from prod in Products
+                            orderby prod.Name
+                            select prod).ToList();
 
             }
             else
             {
                 // Method Syntax
+                Products = Products.OrderBy(prod => prod.Name).ToList();
 
             }
 
@@ -187,11 +204,15 @@ namespace DataLayer.Models
             if (UseQuerySyntax)
             {
                 // Query Syntax
+                Products = (from prod in Products
+                            orderby prod.Name descending
+                            select prod).ToList();
 
             }
             else
             {
                 // Method Syntax
+                Products = Products.OrderByDescending(prod => prod.Name).ToList();
 
             }
 
