@@ -229,11 +229,17 @@ namespace DataLayer.Models
             if (UseQuerySyntax)
             {
                 // Query Syntax
+                Products = (from prod in Products
+                            orderby prod.Color descending, prod.Name
+                            select prod).ToList();
 
             }
             else
             {
                 // Method Syntax
+                Products = Products.OrderByDescending( prod => prod.Color)
+                    .ThenBy(prod => prod.Name)
+                    .ToList();
 
             }
 
