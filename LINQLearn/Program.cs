@@ -10,7 +10,7 @@ SamplesViewModel vm = new SamplesViewModel()
 
 //call a sample method
 
-vm.GetAll();
+vm.GetSpecificColumns();
 
 //Display Product Collection
 
