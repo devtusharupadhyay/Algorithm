@@ -246,5 +246,245 @@ namespace DataLayer.Models
             ResultText = $"Total Products: {Products.Count}";
         }
         #endregion
+
+        public void WhereExpression() 
+        {
+            string search = "L";
+            if (UseQuerySyntax) 
+            {
+                //Query Syntax
+                Products = (from prod in Products
+                            where prod.Name.StartsWith(search)
+                            select prod).ToList();
+            }
+            else
+            {
+                Products = Products
+                    .Where(prod => prod.Name.StartsWith(search)).ToList();   
+            }
+
+            ResultText = $"Total Products: {Products.Count}";
+        }
+
+        public void WhereTwoFields() 
+        {
+            string search = "L";
+            decimal cost = 100;
+            if (UseQuerySyntax)
+            {
+                Products = (from prod in Products
+                           where prod.Name.StartsWith(search)
+                           && prod.StandardCost > cost
+                           select prod).ToList();
+            }
+            else 
+            {
+                Products = Products
+                            .Where(prod => prod.Name.StartsWith(search)
+                            && prod.StandardCost > cost).ToList();
+                           
+
+            }
+
+            ResultText = $"Total Products: {Products.Count}";
+        }
+
+        public void WhereExtensionMethod() 
+        {
+            string search = "Red";
+          
+            if (UseQuerySyntax)
+            {
+                Products = (from prod in Products
+                            select prod).ByColor(search).ToList();
+            }
+            else
+            {
+                Products = Products.ByColor(search).ToList();
+            }
+
+           
+            ResultText = $"Total Products: {Products.Count}";
+        }
+
+        public void First() {
+
+            Product Value;
+            string search = "Red";
+            try
+            {
+                if (UseQuerySyntax)
+                {
+                    Value = (from prod in Products
+                             select prod)
+                               .First(prod => prod.Color == search);
+                }
+                else
+                {
+                    Value = Products.First(prod => prod.Color == search);
+                }
+
+                ResultText = $"Found: {Value}";
+            }
+            catch 
+            {
+
+                ResultText = $"Not Found";
+            }
+
+            Products.Clear();
+           
+        }
+
+        public void FirstOrDefault()
+        {
+
+            Product? Value;
+            string search = "Red";
+            try
+            {
+                if (UseQuerySyntax)
+                {
+                    Value = (from prod in Products
+                             select prod)
+                               .FirstOrDefault(prod => prod.Color == search);
+                }
+                else
+                {
+                    Value = Products.FirstOrDefault(prod => prod.Color == search);
+                }
+
+                ResultText = $"Found: {Value}";
+            }
+            catch
+            {
+
+                ResultText = $"Not Found";
+            }
+
+            Products.Clear();
+
+        }
+
+        public void Last()
+        {
+
+            Product Value;
+            string search = "Red";
+            try
+            {
+                if (UseQuerySyntax)
+                {
+                    Value = (from prod in Products
+                             select prod)
+                               .Last(prod => prod.Color == search);
+                }
+                else
+                {
+                    Value = Products.Last(prod => prod.Color == search);
+                }
+
+                ResultText = $"Found: {Value}";
+            }
+            catch
+            {
+
+                ResultText = $"Not Found";
+            }
+
+            Products.Clear();
+
+        }
+
+        public void LastOrDefault()
+        {
+
+            Product? Value;
+            string search = "Red";
+            try
+            {
+                if (UseQuerySyntax)
+                {
+                    Value = (from prod in Products
+                             select prod)
+                               .LastOrDefault(prod => prod.Color == search);
+                }
+                else
+                {
+                    Value = Products.LastOrDefault(prod => prod.Color == search);
+                }
+
+                ResultText = $"Found: {Value}";
+            }
+            catch
+            {
+
+                ResultText = $"Not Found";
+            }
+
+            Products.Clear();
+
+        }
+
+        public void Single()
+        {
+
+            Product Value;
+            string search = "Red";
+            try
+            {
+                if (UseQuerySyntax)
+                {
+                    Value = (from prod in Products
+                             select prod)
+                               .Single(prod => prod.Color == search);
+                }
+                else
+                {
+                    Value = Products.Single(prod => prod.Color == search);
+                }
+
+                ResultText = $"Found: {Value}";
+            }
+            catch
+            {
+
+                ResultText = $"Not Found";
+            }
+
+            Products.Clear();
+
+        }
+
+        public void SingleOrDefault()
+        {
+
+            Product? Value;
+            string search = "Red";
+            try
+            {
+                if (UseQuerySyntax)
+                {
+                    Value = (from prod in Products
+                             select prod)
+                               .SingleOrDefault(prod => prod.Color == search);
+                }
+                else
+                {
+                    Value = Products.SingleOrDefault(prod => prod.Color == search);
+                }
+
+                ResultText = $"Found: {Value}";
+            }
+            catch
+            {
+
+                ResultText = $"Not Found";
+            }
+
+            Products.Clear();
+
+        }
+
     }
 }

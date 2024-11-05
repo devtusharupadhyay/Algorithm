@@ -10,7 +10,7 @@ SamplesViewModel vm = new SamplesViewModel()
 
 //call a sample method
 
-vm.OrderByTwoFields();
+vm.First();
 
 //Display Product Collection
 
